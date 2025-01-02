@@ -1,34 +1,40 @@
 import React from "react";
-import "./LearningPath.css";
 import { useNavigate } from "react-router-dom";
+import "./LearningPath.css";
 
 const levels = [
-  { id: 1, title: "Niveau 1" },
-  { id: 2, title: "Niveau 2" },
-  { id: 3, title: "Niveau 3" },
-  { id: 4, title: "Niveau 4" },
-  { id: 5, title: "Niveau 5" },
+  { id: 1, name: "Level 1", image: "/images/level1.jpg" },
+  { id: 2, name: "Level 2", image: "/images/level1.jpg" },
+  { id: 3, name: "Level 3", image: "/images/level1.jpg" },
+  { id: 4, name: "Level 4", image: "/images/level1.jpg" },
+  { id: 5, name: "Level 5", image: "/images/level1.jpg" },
 ];
 
 const LearningPath = () => {
   const navigate = useNavigate();
 
-  const handleLevelClick = (levelId) => {
-    navigate(`/level/${levelId}`);
+  const handleCardClick = (id) => {
+    navigate(`/level/${id}`);
   };
 
   return (
     <div className="learning-path">
-      <h2>Your Learning Path</h2>
+      <h2>Select Your Level</h2>
       <div className="levels-grid">
         {levels.map((level) => (
           <div
             key={level.id}
             className="level-card"
-            onClick={() => handleLevelClick(level.id)}
+            onClick={() => handleCardClick(level.id)}
           >
-            <h3>{level.title}</h3>
-            <p>Start Learning</p>
+            <img
+              src={level.image}
+              alt={`${level.name}`}
+              className="level-image"
+            />
+            <div className="level-info">
+              <h3>{level.name}</h3>
+            </div>
           </div>
         ))}
       </div>
