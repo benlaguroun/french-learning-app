@@ -1,6 +1,7 @@
 import React from "react";
 import FeatureSection from "../components/FeatureSection";
 import AboutUsSection from "../components/AboutUsSection";
+import AppShowcaseSection from "../components/AppShowcaseSection";
 import "./Home.css";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         </p>
       </header>
       <FeatureSection />
+      <AppShowcaseSection />
       <AboutUsSection />
     </div>
   );

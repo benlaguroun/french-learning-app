@@ -1,0 +1,33 @@
+.learning-path {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.learning-path h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.levels-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.level-card {
+  flex: 1 1 calc(20% - 20px);
+  max-width: 200px;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.level-card:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
