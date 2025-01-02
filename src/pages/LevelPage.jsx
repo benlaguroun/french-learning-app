@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import "./LevelPage.css";
 
 const syllables = {
@@ -9,8 +10,13 @@ const syllables = {
   5: ["pa", "pe", "pi", "po", "pu"],
 };
 
-const LevelPage = ({ levelId }) => {
+const LevelPage = () => {
+  const { levelId } = useParams();
   const syllablesForLevel = syllables[levelId];
+
+  if (!syllablesForLevel) {
+    return <p>Level not found or no syllables available.</p>;
+  }
 
   const playAudio = (syllable) => {
     const audio = new Audio(`/audio/${syllable}.mp3`);
