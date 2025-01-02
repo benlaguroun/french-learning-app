@@ -1,44 +1,32 @@
 import React from "react";
-import "./Header.css"; // Custom styles
+import "./Header.css"; // Custom styles for the header
+import { Navbar, Nav, Button } from "react-bootstrap"; // Bootstrap components
 
 const Header = () => {
   return (
-    <header className="header bg-primary text-white">
-      <nav className="navbar navbar-expand-lg container">
-        <a className="navbar-brand" href="/">
-          Learn French
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#about">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#features">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#contact">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <header>
+      <Navbar bg="light" expand="lg" className="header">
+        <Navbar.Brand href="#" className="brand">
+          <img src="/logo.png" alt="French Learning Logo" className="logo" />{" "}
+          French Learning App
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-content" />
+        <Navbar.Collapse id="navbar-content">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#syllables">Syllables</Nav.Link>
+            <Nav.Link href="#tests">Tests</Nav.Link>
+            <Nav.Link href="#progress">Progress</Nav.Link>
+            <Nav.Link href="#about">About</Nav.Link>
+          </Nav>
+          <div className="header-buttons">
+            <Button variant="outline-primary" className="me-2">
+              Register
+            </Button>
+            <Button variant="primary">Sign In</Button>
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
     </header>
   );
 };
