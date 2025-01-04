@@ -1,4 +1,5 @@
 import React from "react";
+import { FaBookOpen, FaTasks, FaChartLine } from "react-icons/fa"; // Import icons
 import "./AppShowcaseSection.css";
 
 const AppShowcaseSection = () => {
@@ -8,18 +9,28 @@ const AppShowcaseSection = () => {
         <h2 className="section-title">Discover Our App</h2>
         <div className="showcase-grid">
           <div className="showcase-item">
-            <img src="/images/syllable-learning.png" alt="Syllable Learning" />
+            <FaBookOpen className="icon" />
+            <h3>Learn Through Syllables</h3>
             <p>
-              Syllable-based learning with visual aids for easy understanding.
+              Unlock the power of syllable-based learning for mastering French
+              vocabulary and pronunciation.
             </p>
           </div>
           <div className="showcase-item">
-            <img src="/images/level-tests.png" alt="Level Tests" />
-            <p>Engaging tests to classify your level and track progress.</p>
+            <FaTasks className="icon" />
+            <h3>Interactive Level Tests</h3>
+            <p>
+              Challenge yourself with engaging tests tailored for each learning
+              level.
+            </p>
           </div>
           <div className="showcase-item">
-            <img src="/images/progress-tracking.png" alt="Progress Tracking" />
-            <p>Track your learning journey with detailed progress insights.</p>
+            <FaChartLine className="icon" />
+            <h3>Track Your Progress</h3>
+            <p>
+              Stay motivated with real-time progress tracking and goal
+              milestones.
+            </p>
           </div>
         </div>
       </div>

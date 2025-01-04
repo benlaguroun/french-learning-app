@@ -54,11 +54,16 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.showcase-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+.showcase-item .icon {
+  font-size: 3rem;
+  color: #007bff;
   margin-bottom: 15px;
+}
+
+.showcase-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #f8f9fa;
 }
 
 .showcase-item p {
