@@ -1,35 +1,64 @@
+/* Feature Section Styles */
 .feature-section {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-
-.feature-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.feature {
-  flex: 1 1 calc(33.333% - 20px);
-  background: white;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  background-color: #f8f9fa;
   text-align: center;
 }
 
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 .feature h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-bottom: 15px;
 }
 
 .feature p {
   font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.feature-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feature-button:hover {
+  background-color: #0056b3;
 }

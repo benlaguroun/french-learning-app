@@ -8,11 +8,14 @@ const Home = () => {
   return (
     <div className="home-page">
       <header className="hero-section">
-        <h1>Welcome to French Learning App</h1>
-        <p>
-          Master French through syllable-based learning, interactive tests, and
-          progress tracking!
-        </p>
+        <div className="hero-content">
+          <h1>Welcome to French Learning App</h1>
+          <p>
+            Master French through syllable-based learning, interactive tests,
+            and progress tracking!
+          </p>
+          <button className="cta-button">Get Started Now</button>
+        </div>
       </header>
       <FeatureSection />
       <AppShowcaseSection />

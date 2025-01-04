@@ -1,44 +1,67 @@
+/* App Showcase Section Styles */
 .app-showcase-section {
-  padding: 50px 20px;
-  background-color: #f4f4f4;
+  height: 100vh;
+  background-image: url("../images/app-showcase-bg.jpg"); /* Replace with your background image path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
   text-align: center;
 }
 
-.app-showcase-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+.app-showcase-section .overlay {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Dark overlay for better text and content visibility */
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .showcase-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  justify-content: center;
 }
 
 .showcase-item {
-  flex: 1 1 calc(33.333% - 20px);
-  max-width: 300px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Slightly transparent background for cards */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .showcase-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .showcase-item img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .showcase-item p {
   font-size: 1rem;
-  color: #555;
+  color: #f8f9fa;
 }
