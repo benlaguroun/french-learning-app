@@ -3,6 +3,7 @@
   background-image: url("../images/app-showcase-bg.jpg"); /* Replace with your background image path */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Keep the background fixed */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +11,7 @@
   color: white;
   text-align: center;
   padding: 50px 20px; /* Use padding instead of fixed height */
+  min-height: 100vh; /* Ensure it occupies full viewport height */
 }
 
 .app-showcase-section .overlay {
@@ -73,8 +75,9 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .app-showcase-section {
-    background-attachment: scroll; /* Prevent fixed background on small screens */
+    background-attachment: scroll; /* Fallback for fixed background on mobile browsers */
     padding: 30px 10px;
+    min-height: auto; /* Adjust height to content */
   }
 
   .section-title {
