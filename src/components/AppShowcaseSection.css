@@ -1,16 +1,15 @@
 /* App Showcase Section Styles */
 .app-showcase-section {
-  height: 100vh;
   background-image: url("../images/app-showcase-bg.jpg"); /* Replace with your background image path */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   color: white;
   text-align: center;
+  padding: 50px 20px; /* Use padding instead of fixed height */
 }
 
 .app-showcase-section .overlay {
@@ -69,4 +68,32 @@
 .showcase-item p {
   font-size: 1rem;
   color: #f8f9fa;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app-showcase-section {
+    background-attachment: scroll; /* Prevent fixed background on small screens */
+    padding: 30px 10px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .showcase-item {
+    padding: 15px;
+  }
+
+  .showcase-item .icon {
+    font-size: 2.5rem;
+  }
+
+  .showcase-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .showcase-item p {
+    font-size: 0.9rem;
+  }
 }
