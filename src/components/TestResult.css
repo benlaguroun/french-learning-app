@@ -1,0 +1,49 @@
+.test-result {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.test-result h2 {
+  color: #333;
+}
+
+.test-result ul {
+  list-style: none;
+  padding: 0;
+}
+
+.test-result li {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.retry-button,
+.next-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.retry-button {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.next-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.retry-button:hover,
+.next-button:hover {
+  opacity: 0.9;
+}
