@@ -1,13 +1,23 @@
+/* Base Styles */
 .tableau-selector {
   text-align: center;
   padding: 20px;
+  margin: 0 auto;
+  max-width: 600px; /* Constrain width for larger screens */
+}
+
+.tableau-selector h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .table-list {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
+/* Table Button */
 .table-button {
   margin: 10px 0;
   padding: 10px 15px;
@@ -18,8 +28,37 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%; /* Full-width on smaller screens */
+  max-width: 300px; /* Constrain width for larger screens */
 }
 
 .table-button:hover {
   background-color: #1d6fa5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tableau-selector {
+    padding: 15px;
+  }
+
+  .tableau-selector h2 {
+    font-size: 1.5rem;
+  }
+
+  .table-button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableau-selector h2 {
+    font-size: 1.2rem;
+  }
+
+  .table-button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
 }
