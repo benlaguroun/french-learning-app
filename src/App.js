@@ -8,6 +8,7 @@ import LearningPath from "./pages/LearningPath";
 import LevelPage from "./pages/LevelPage";
 import FeatureSection from "./components/FeatureSection";
 import TestNiveau from "./components/TestNiveau";
+import TableauLettres from "./components/TableauLettres";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/level/:levelId" element={<LevelPage />} />
           <Route path="/" element={<FeatureSection />} />
           <Route path="/test-niveau" element={<TestNiveau />} />
+          <Route path="/tableau-lettres" element={<TableauLettres />} />
         </Routes>
         <Footer />
       </div>

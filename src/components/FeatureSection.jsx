@@ -8,6 +8,15 @@ const FeatureSection = () => {
       <h2 className="section-title">Our Features</h2>
       <div className="features">
         <div className="feature">
+          <h3>Progressive Level Tests</h3>
+          <p>
+            Take classification tests from Niveau 1 to Niveau 5 with feedback.
+          </p>
+          <Link to="/test-niveau">
+            <button className="feature-button">Explore Tests</button>
+          </Link>
+        </div>
+        <div className="feature">
           <h3>Interactive Syllable Learning</h3>
           <p>
             Tap and learn syllables with visual aids to reinforce vocabulary.
@@ -15,12 +24,12 @@ const FeatureSection = () => {
           <button className="feature-button">Learn More</button>
         </div>
         <div className="feature">
-          <h3>Progressive Level Tests</h3>
+          <h3>Tableau des Lettres</h3>
           <p>
-            Take classification tests from Niveau 1 to Niveau 5 with feedback.
+            Learn all letters interactively with animations and spelling guides.
           </p>
-          <Link to="/test-niveau">
-            <button className="feature-button">Explore Tests</button>
+          <Link to="/tableau-lettres">
+            <button className="feature-button">Explore Letters</button>
           </Link>
         </div>
         <div className="feature">
