@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from React Router
 import "./FeatureSection.css";
 
 const FeatureSection = () => {
@@ -18,7 +19,9 @@ const FeatureSection = () => {
           <p>
             Take classification tests from Niveau 1 to Niveau 5 with feedback.
           </p>
-          <button className="feature-button">Explore Tests</button>
+          <Link to="/test-niveau">
+            <button className="feature-button">Explore Tests</button>
+          </Link>
         </div>
         <div className="feature">
           <h3>Progress Tracking</h3>

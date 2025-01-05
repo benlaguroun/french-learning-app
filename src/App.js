@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import LearningPath from "./pages/LearningPath";
 import LevelPage from "./pages/LevelPage";
+import FeatureSection from "./components/FeatureSection";
+import TestNiveau from "./components/TestNiveau";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/learning-path" element={<LearningPath />} />
           <Route path="/level/:levelId" element={<LevelPage />} />
+          <Route path="/" element={<FeatureSection />} />
+          <Route path="/test-niveau" element={<TestNiveau />} />
         </Routes>
         <Footer />
       </div>

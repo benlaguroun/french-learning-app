@@ -34,11 +34,7 @@ const Header = () => {
     >
       <Container>
         <Navbar.Brand as={Link} to="/" className="brand">
-          <img
-            src="../images/logo.png"
-            alt="French Learning App Logo"
-            className="logo"
-          />
+          <img src="../images/logo.png" alt="logo" className="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
