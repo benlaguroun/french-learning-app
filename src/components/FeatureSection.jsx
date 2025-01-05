@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 import "./FeatureSection.css";
 
 const FeatureSection = () => {
@@ -21,7 +21,9 @@ const FeatureSection = () => {
           <p>
             Tap and learn syllables with visual aids to reinforce vocabulary.
           </p>
-          <button className="feature-button">Learn More</button>
+          <Link to="/tableau-selector">
+            <button className="feature-button">Learn Syllables</button>
+          </Link>
         </div>
         <div className="feature">
           <h3>Tableau des Lettres</h3>

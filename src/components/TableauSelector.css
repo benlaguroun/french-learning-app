@@ -1,0 +1,25 @@
+.tableau-selector {
+  text-align: center;
+  padding: 20px;
+}
+
+.table-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.table-button {
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.table-button:hover {
+  background-color: #1d6fa5;
+}

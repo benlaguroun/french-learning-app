@@ -9,6 +9,9 @@ import LevelPage from "./pages/LevelPage";
 import FeatureSection from "./components/FeatureSection";
 import TestNiveau from "./components/TestNiveau";
 import TableauLettres from "./components/TableauLettres";
+import InteractiveSyllable from "./components/InteractiveSyllable";
+import TableauSelector from "./components/TableauSelector";
+import SyllabicTableau from "./components/SyllabicTableau";
 
 const App = () => {
   return (
@@ -22,7 +25,14 @@ const App = () => {
           <Route path="/" element={<FeatureSection />} />
           <Route path="/test-niveau" element={<TestNiveau />} />
           <Route path="/tableau-lettres" element={<TableauLettres />} />
+          <Route
+            path="/interactive-syllable"
+            element={<InteractiveSyllable />}
+          />
+          <Route path="/tableau-selector" element={<TableauSelector />} />
+          <Route path="/tableau/:id" element={<SyllabicTableau />} />
         </Routes>
+
         <Footer />
       </div>
     </Router>
