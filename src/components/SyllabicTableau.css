@@ -7,41 +7,82 @@
 }
 
 .syllabic-tableau h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 20px;
+  color: #2c3e50; /* Darker tone for better visibility */
+}
+
+/* Letter Navigation */
+.letter-navigation {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.letter-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2ecc71; /* Green for active buttons */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.letter-button:hover {
+  background-color: #27ae60; /* Slightly darker green on hover */
+}
+
+.letter-button.active {
+  background-color: #16a085; /* Distinct color for active selection */
 }
 
 /* Grid Layout */
-.syllable-grid {
+.syllable-grid,
+.word-grid {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
     minmax(150px, 1fr)
-  ); /* Adjust grid layout for all screen sizes */
+  ); /* Flexible grid layout */
   gap: 20px;
   justify-items: center; /* Center items within the grid */
   margin-top: 20px;
 }
 
 /* Syllable Card */
-.syllable-card {
-  background: linear-gradient(135deg, #d6eaff, #e9f7ff);
+.syllable-card,
+.word-card {
+  background: linear-gradient(135deg, #d6eaff, #e9f7ff); /* Light gradient */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  max-width: 200px; /* Limit card width for better alignment */
+  max-width: 200px; /* Restrict max width for alignment */
 }
 
-.syllable-card.active {
+.syllable-card:hover,
+.word-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.syllable-card h3,
+.word-card h3 {
+  font-size: 24px; /* Word font size */
+  color: #34495e; /* Darker text color */
+  margin-bottom: 10px;
+}
+
+.syllable-card.active,
+.word-card.active {
   transform: scale(1.1);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.syllable-card h3 {
-  font-size: 24px; /* Font size for words */
-  margin-bottom: 10px;
 }
 
 /* Buttons */
@@ -51,22 +92,45 @@
   padding: 12px 18px;
   border: none;
   border-radius: 5px;
-  background-color: #3498db;
+  background-color: #3498db; /* Blue for action buttons */
   color: white;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.audio-button:hover,
+.audio-button:hover {
+  background-color: #1d6fa5; /* Darker blue on hover */
+}
+
+.voice-test-button {
+  background-color: #9b59b6; /* Purple for "Test Voice" button */
+}
+
 .voice-test-button:hover {
-  background-color: #1d6fa5;
+  background-color: #8e44ad; /* Slightly darker purple on hover */
 }
 
-/* Feedback */
-.feedback p {
-  font-size: 16px; /* Slightly larger for visibility */
+/* Section Titles */
+.section-title {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: #2c3e50;
+  text-transform: uppercase;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Feedback Section */
+.feedback {
   margin-top: 20px;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.feedback p {
+  margin-top: 10px;
 }
 
 /* Responsive Adjustments */
@@ -76,15 +140,17 @@
   }
 
   .syllabic-tableau h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
-  .syllable-card {
+  .syllable-card,
+  .word-card {
     padding: 15px;
   }
 
-  .syllable-card h3 {
-    font-size: 20px; /* Adjust font size for mobile */
+  .syllable-card h3,
+  .word-card h3 {
+    font-size: 20px;
   }
 
   .audio-button,
@@ -100,15 +166,17 @@
   }
 
   .syllabic-tableau h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
-  .syllable-card {
+  .syllable-card,
+  .word-card {
     padding: 10px;
   }
 
-  .syllable-card h3 {
-    font-size: 18px; /* Make the word smaller on very small screens */
+  .syllable-card h3,
+  .word-card h3 {
+    font-size: 18px; /* Reduce font size for smaller screens */
   }
 
   .audio-button,
@@ -117,14 +185,9 @@
     padding: 8px 12px;
   }
 
-  /* Adjust grid for very small screens */
-  .syllable-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* One column for smaller screens */
+  .syllable-grid,
+  .word-grid {
+    grid-template-columns: 1fr; /* Single column for small screens */
     gap: 15px;
-  }
-
-  .syllable-card {
-    width: 100%; /* Full width for smaller screens */
   }
 }
