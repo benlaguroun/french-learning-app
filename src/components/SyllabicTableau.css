@@ -64,6 +64,8 @@
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   max-width: 200px; /* Restrict max width for alignment */
+
+  font-size: 1.2rem; /* Increase font size for better visibility */
 }
 
 .syllable-card:hover,
@@ -190,4 +192,53 @@
     grid-template-columns: 1fr; /* Single column for small screens */
     gap: 15px;
   }
+}
+
+/* Word Card */
+.word-card {
+  background: linear-gradient(
+    135deg,
+    #d6eaff,
+    #e9f7ff
+  ); /* Light gradient (same as syllable cards) */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Same padding as syllable cards */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 200px; /* Restrict max width for alignment */
+  font-size: 1.2rem; /* Increase font size for better visibility */
+}
+
+/* Hover Effect */
+.word-card:hover {
+  transform: scale(1.05); /* Slight enlargement on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Word Title */
+.word-card h3 {
+  font-size: 24px; /* Same size as syllable card titles */
+  color: #34495e; /* Consistent text color */
+  margin-bottom: 10px;
+}
+
+/* Buttons inside Word Card */
+.word-card .audio-button,
+.word-card .voice-test-button {
+  margin-top: 10px;
+  padding: 12px 18px; /* Keep consistent button padding */
+  font-size: 14px; /* Same font size as syllable card buttons */
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Hover */
+.word-card .audio-button:hover,
+.word-card .voice-test-button:hover {
+  background-color: #1d6fa5;
 }
