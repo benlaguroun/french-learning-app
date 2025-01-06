@@ -22,9 +22,13 @@ export const tableaux = [
     id: 2,
     name: "Tableau 2",
     syllables: [
-      { syllable: "na", audio: "/audio/na.mp3" },
-      { syllable: "ka", audio: "/audio/ka.mp3" },
-      { syllable: "la", audio: "/audio/la.mp3" },
+      { syllable: "ha", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "hi", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "ho", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "avion", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "avion", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "avion", audio: "/audio/syllables/tableau2/avion.mp3" },
+      { syllable: "avion", audio: "/audio/syllables/tableau2/avion.mp3" },
     ],
   },
   {

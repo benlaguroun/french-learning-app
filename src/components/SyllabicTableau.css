@@ -3,7 +3,7 @@
   text-align: center;
   padding: 20px;
   margin: 0 auto;
-  max-width: 800px; /* Constrain width for larger screens */
+  max-width: 1200px; /* Constrain width for larger screens */
 }
 
 .syllabic-tableau h2 {
@@ -16,9 +16,10 @@
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(100px, 1fr)
-  ); /* Adjust grid for responsive layout */
+    minmax(150px, 1fr)
+  ); /* Adjust grid layout for all screen sizes */
   gap: 20px;
+  justify-items: center; /* Center items within the grid */
   margin-top: 20px;
 }
 
@@ -30,6 +31,7 @@
   padding: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 200px; /* Limit card width for better alignment */
 }
 
 .syllable-card.active {
@@ -38,8 +40,8 @@
 }
 
 .syllable-card h3 {
-  font-size: 28px; /* Increase font size for the word */
-  margin-bottom: 15px;
+  font-size: 24px; /* Font size for words */
+  margin-bottom: 10px;
 }
 
 /* Buttons */
@@ -51,7 +53,7 @@
   border-radius: 5px;
   background-color: #3498db;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -63,7 +65,7 @@
 
 /* Feedback */
 .feedback p {
-  font-size: 18px; /* Slightly larger for visibility */
+  font-size: 16px; /* Slightly larger for visibility */
   margin-top: 20px;
 }
 
@@ -82,12 +84,12 @@
   }
 
   .syllable-card h3 {
-    font-size: 22px; /* Adjust font size for mobile */
+    font-size: 20px; /* Adjust font size for mobile */
   }
 
   .audio-button,
   .voice-test-button {
-    font-size: 14px;
+    font-size: 12px;
     padding: 10px 15px;
   }
 }
@@ -111,17 +113,18 @@
 
   .audio-button,
   .voice-test-button {
-    font-size: 12px;
+    font-size: 10px;
     padding: 8px 12px;
   }
 
-  /* Adjusting grid for smaller screens (one column) */
+  /* Adjust grid for very small screens */
   .syllable-grid {
-    display: block; /* Use block layout to stack items in a single column */
+    display: grid;
+    grid-template-columns: 1fr; /* One column for smaller screens */
+    gap: 15px;
   }
 
   .syllable-card {
-    width: 100%; /* Ensure cards take up full width */
-    margin-bottom: 15px; /* Add space between cards */
+    width: 100%; /* Full width for smaller screens */
   }
 }
