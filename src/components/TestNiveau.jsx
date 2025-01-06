@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { niveaux } from "../data/vocabulary"; // Make sure `niveaux` contains all your vocabulary data
+import { niveaux } from "../data/vocabulary"; // Ensure `niveaux` contains all vocabulary data
 import "./TestNiveau.css";
 
 const TestNiveau = () => {
-  const [currentNiveau, setCurrentNiveau] = useState("niveau1"); // Tracks current niveau
-  const [results, setResults] = useState({}); // Tracks test results for words
-  const [feedback, setFeedback] = useState(""); // General feedback
-  const [recognizedWord, setRecognizedWord] = useState(""); // Last recognized word
+  const [currentNiveau, setCurrentNiveau] = useState("niveau1");
+  const [results, setResults] = useState({});
+  const [feedback, setFeedback] = useState("");
+  const [recognizedWord, setRecognizedWord] = useState("");
 
-  const vocabulary = niveaux[currentNiveau]; // Get vocabulary for current niveau
+  const vocabulary = niveaux[currentNiveau];
 
   const startSpeechRecognition = (expectedWord) => {
     const recognition = new (window.SpeechRecognition ||
@@ -26,13 +26,15 @@ const TestNiveau = () => {
           ...prevResults,
           [expectedWord]: true,
         }));
-        setFeedback("Correct! 🎉");
+        setFeedback(`Correct! 🎉 "${spokenWord}" matches "${expectedWord}"`);
       } else {
         setResults((prevResults) => ({
           ...prevResults,
           [expectedWord]: false,
         }));
-        setFeedback(`Incorrect. You said: "${spokenWord}". Try again.`);
+        setFeedback(
+          `Incorrect. You said: "${spokenWord}", expected: "${expectedWord}".`
+        );
       }
     };
     recognition.onerror = () => setFeedback("Error occurred. Try again.");
@@ -40,7 +42,6 @@ const TestNiveau = () => {
   };
 
   const handleNiveauComplete = () => {
-    // Check if the user passed the niveau
     const wordsTested = Object.keys(results);
     const correctAnswers = wordsTested.filter((word) => results[word]).length;
     const passRate = (correctAnswers / vocabulary.length) * 100;
@@ -67,6 +68,18 @@ const TestNiveau = () => {
   return (
     <div className="test-niveau">
       <h2>Test Your Vocabulary - {currentNiveau.toUpperCase()}</h2>
+
+      {/* Feedback Section */}
+      <div className="feedback">
+        {recognizedWord && (
+          <p>
+            <strong>You said:</strong> "{recognizedWord}"
+          </p>
+        )}
+        <p>{feedback}</p>
+      </div>
+
+      {/* Niveau Selector */}
       <div className="niveau-selector">
         {Object.keys(niveaux).map((niveau) => (
           <button
@@ -86,6 +99,7 @@ const TestNiveau = () => {
         ))}
       </div>
 
+      {/* Vocabulary Cards */}
       <div className="cards">
         {vocabulary.map((word, index) => (
           <div key={index} className="card">
@@ -98,14 +112,14 @@ const TestNiveau = () => {
               Test Voice
             </button>
 
-            {/* Show results under the card */}
+            {/* Results for each word */}
             {results[word] !== undefined && (
               <p className={`test-result ${results[word] ? "pass" : "fail"}`}>
                 {results[word] ? "Passed ✅" : "Failed ❌"}
               </p>
             )}
 
-            {/* Repeat button for incorrect results */}
+            {/* Repeat Button for Incorrect Answers */}
             {results[word] === false && (
               <button
                 className="repeat-button"
@@ -118,11 +132,7 @@ const TestNiveau = () => {
         ))}
       </div>
 
-      <div className="feedback">
-        {recognizedWord && <p>You said: "{recognizedWord}"</p>}
-        <p>{feedback}</p>
-      </div>
-
+      {/* Niveau Completion Button */}
       {Object.keys(results).length === vocabulary.length && (
         <div className="niveau-summary">
           <button className="complete-button" onClick={handleNiveauComplete}>
