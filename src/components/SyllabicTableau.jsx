@@ -7,7 +7,7 @@ const SyllabicTableau = () => {
   const { id } = useParams();
   const tableau = tableaux.find((t) => t.id === parseInt(id));
   const [activeLetter, setActiveLetter] = useState(tableau.sections[0].letter); // Default to the first letter
-  const [feedback, setFeedback] = useState(""); // State to show feedback after testing voice
+  const [feedbacks, setFeedbacks] = useState({}); // State to track feedback for each card
 
   if (!tableau) {
     return (
@@ -23,7 +23,7 @@ const SyllabicTableau = () => {
   );
 
   // Handle voice test
-  const handleVoiceTest = async (target) => {
+  const handleVoiceTest = async (target, index, type) => {
     try {
       const recognition = new (window.SpeechRecognition ||
         window.webkitSpeechRecognition)();
@@ -32,19 +32,49 @@ const SyllabicTableau = () => {
 
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript.toLowerCase();
-        if (transcript === target.toLowerCase()) {
-          setFeedback(`Correct! You said "${transcript}".`);
-        } else {
-          setFeedback(`Try again! You said "${transcript}".`);
-        }
+        const accuracy = calculateAccuracy(transcript, target.toLowerCase());
+        const color = getAccuracyColor(accuracy);
+
+        setFeedbacks((prevFeedbacks) => ({
+          ...prevFeedbacks,
+          [`${type}-${index}`]: { text: transcript, color, accuracy },
+        }));
       };
 
       recognition.onerror = () => {
-        setFeedback("Voice recognition failed. Please try again.");
+        setFeedbacks((prevFeedbacks) => ({
+          ...prevFeedbacks,
+          [`${type}-${index}`]: {
+            text: "Voice recognition failed.",
+            color: "#e74c3c", // Red
+            accuracy: 0,
+          },
+        }));
       };
     } catch (error) {
-      setFeedback("Speech recognition is not supported in your browser.");
+      setFeedbacks((prevFeedbacks) => ({
+        ...prevFeedbacks,
+        [`${type}-${index}`]: {
+          text: "Speech recognition is not supported in your browser.",
+          color: "#e74c3c", // Red
+          accuracy: 0,
+        },
+      }));
     }
+  };
+
+  // Calculate accuracy (simple comparison for now)
+  const calculateAccuracy = (transcript, target) => {
+    if (transcript === target) return 100; // Perfect match
+    const common = transcript.split("").filter((char) => target.includes(char));
+    return Math.floor((common.length / target.length) * 100); // Percentage match
+  };
+
+  // Get color based on accuracy
+  const getAccuracyColor = (accuracy) => {
+    const red = 255 - Math.floor((accuracy / 100) * 255);
+    const green = Math.floor((accuracy / 100) * 255);
+    return `rgb(${red}, ${green}, 0)`;
   };
 
   return (
@@ -83,10 +113,24 @@ const SyllabicTableau = () => {
               </button>
               <button
                 className="voice-test-button"
-                onClick={() => handleVoiceTest(item.syllable)}
+                onClick={() =>
+                  handleVoiceTest(item.syllable, index, "syllable")
+                }
               >
                 Test Voice
               </button>
+              <div
+                className="feedback-rectangle"
+                style={{
+                  backgroundColor:
+                    feedbacks[`syllable-${index}`]?.color || "#ccc",
+                }}
+              >
+                {feedbacks[`syllable-${index}`]?.accuracy
+                  ? `${feedbacks[`syllable-${index}`]?.accuracy}%`
+                  : "Pending"}
+              </div>
+              <p>{feedbacks[`syllable-${index}`]?.text || ""}</p>
             </div>
           ))}
         </div>
@@ -109,18 +153,24 @@ const SyllabicTableau = () => {
               </button>
               <button
                 className="voice-test-button"
-                onClick={() => handleVoiceTest(item.word)}
+                onClick={() => handleVoiceTest(item.word, index, "word")}
               >
                 Test Voice
               </button>
+              <div
+                className="feedback-rectangle"
+                style={{
+                  backgroundColor: feedbacks[`word-${index}`]?.color || "#ccc",
+                }}
+              >
+                {feedbacks[`word-${index}`]?.accuracy
+                  ? `${feedbacks[`word-${index}`]?.accuracy}%`
+                  : "Pending"}
+              </div>
+              <p>{feedbacks[`word-${index}`]?.text || ""}</p>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Feedback */}
-      <div className="feedback">
-        <p>{feedback}</p>
       </div>
     </div>
   );

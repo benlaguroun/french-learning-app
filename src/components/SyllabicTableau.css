@@ -242,3 +242,16 @@
 .word-card .voice-test-button:hover {
   background-color: #1d6fa5;
 }
+
+.feedback-rectangle {
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #ccc; /* Default grey */
+  transition: background-color 0.3s ease;
+  text-align: center;
+  color: white;
+  line-height: 20px; /* Center text vertically */
+  font-size: 14px;
+}

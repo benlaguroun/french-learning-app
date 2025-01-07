@@ -91,6 +91,31 @@ export const tableaux = [
           { word: "melon", audio: "/audio/syllables/tableau1/N/melon.mp3" },
         ],
       },
+
+      {
+        letter: "d",
+        syllables: [
+          { syllable: "da", audio: "/audio/syllables/tableau1/D/da.mp3" },
+          { syllable: "di", audio: "/audio/syllables/tableau1/D/di.mp3" },
+          { syllable: "do", audio: "/audio/syllables/tableau1/D/do.mp3" },
+          { syllable: "de", audio: "/audio/syllables/tableau1/D/de.mp3" },
+          { syllable: "du", audio: "/audio/syllables/tableau1/D/du.mp3" },
+        ],
+        words: [
+          { word: "dame", audio: "/audio/syllables/tableau1/D/dame.mp3" },
+          { word: "radis", audio: "/audio/syllables/tableau1/D/radis.mp3" },
+          { word: "domino", audio: "/audio/syllables/tableau1/D/domino.mp3" },
+          {
+            word: "salade",
+            audio: "/audio/syllables/tableau1/D/salade.mp3",
+          },
+          { word: "radio", audio: "/audio/syllables/tableau1/D/radio.mp3" },
+          { word: "judo", audio: "/audio/syllables/tableau1/D/judo.mp3" },
+          { word: "dune", audio: "/audio/syllables/tableau1/D/dune.mp3" },
+          { word: "doigt", audio: "/audio/syllables/tableau1/D/doigt.mp3" },
+          { word: "balade", audio: "/audio/syllables/tableau1/D/balade.mp3" },
+        ],
+      },
       // Add more sections for other letters...
     ],
   },
