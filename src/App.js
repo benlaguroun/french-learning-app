@@ -6,13 +6,14 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import LearningPath from "./pages/LearningPath";
 import LevelPage from "./pages/LevelPage";
-import FeatureSection from "./components/FeatureSection";
 import TestNiveau from "./components/TestNiveau";
 import TableauLettres from "./components/TableauLettres";
 import InteractiveSyllable from "./components/InteractiveSyllable";
 import TableauSelector from "./components/TableauSelector";
 import SyllabicTableau from "./components/SyllabicTableau";
 import VocabularyPage from "./components/VocabularyPage";
+import MindMaps from "./components/MindMaps";
+import ColorCodedCharts from "./components/ColorCodedCharts";
 
 const App = () => {
   return (
@@ -23,7 +24,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/learning-path" element={<LearningPath />} />
           <Route path="/level/:levelId" element={<LevelPage />} />
-          <Route path="/" element={<FeatureSection />} />
           <Route path="/test-niveau" element={<TestNiveau />} />
           <Route path="/tableau-lettres" element={<TableauLettres />} />
           <Route
@@ -33,8 +33,9 @@ const App = () => {
           <Route path="/tableau-selector" element={<TableauSelector />} />
           <Route path="/tableau/:id" element={<SyllabicTableau />} />
           <Route path="/vocabulaire" element={<VocabularyPage />} />
+          <Route path="/mind-maps" element={<MindMaps />} />
+          <Route path="/color-coded-charts" element={<ColorCodedCharts />} />
         </Routes>
-
         <Footer />
       </div>
     </Router>
