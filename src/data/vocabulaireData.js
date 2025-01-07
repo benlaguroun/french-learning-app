@@ -5,7 +5,7 @@ const vocabulaireData = [
     audio: "vocabulaireData/audio/apple.mp3",
   },
   {
-    name: "Chat",
+    name: "chat",
     image: "/images/cat.jpg",
     audio: "/audio/cat.mp3",
   },
