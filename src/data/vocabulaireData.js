@@ -12,12 +12,12 @@ const vocabulaireData = [
   },
   {
     name: "Avion",
-    image: "vocabulaireData/images/Avion.jpg",
+    image: "vocabulaireData/images/avion.jpg",
     audio: "vocabulaireData/audio/avion.mp3",
   },
   {
     name: "Arbre",
-    image: "vocabulaireData/images/arbre.jpg",
+    image: "vocabulaireData/images/Arbre.jpg",
     audio: "vocabulaireData/audio/arbre.mp3",
   },
   {
@@ -59,12 +59,12 @@ const vocabulaireData = [
   },
   {
     name: "Bateau",
-    image: "vocabulaireData/images/bateau.jpg",
+    image: "vocabulaireData/images/Bateau.jpg",
     audio: "vocabulaireData/audio/bateau.mp3",
   },
   {
     name: "Bébé",
-    image: "vocabulaireData/images/bebe.jpg",
+    image: "vocabulaireData/images/Bebe.jpg",
     audio: "vocabulaireData/audio/bebe.mp3",
   },
   {
