@@ -12,6 +12,7 @@ import TableauLettres from "./components/TableauLettres";
 import InteractiveSyllable from "./components/InteractiveSyllable";
 import TableauSelector from "./components/TableauSelector";
 import SyllabicTableau from "./components/SyllabicTableau";
+import VocabularyPage from "./components/VocabularyPage";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           />
           <Route path="/tableau-selector" element={<TableauSelector />} />
           <Route path="/tableau/:id" element={<SyllabicTableau />} />
+          <Route path="/vocabulaire" element={<VocabularyPage />} />
         </Routes>
 
         <Footer />

@@ -35,6 +35,16 @@ const FeatureSection = () => {
           </Link>
         </div>
         <div className="feature">
+          <h3>Vocabulary Builder</h3>
+          <p>
+            Explore vocabulary cards with images, names, and audio for each
+            word.
+          </p>
+          <Link to="/vocabulaire">
+            <button className="feature-button">Explore Vocabulary</button>
+          </Link>
+        </div>
+        <div className="feature">
           <h3>Progress Tracking</h3>
           <p>
             Monitor your learning journey with comprehensive progress tracking.
