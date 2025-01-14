@@ -319,4 +319,136 @@ export const tableaux = [
       // Add more sections for other letters...
     ],
   },
+
+  {
+    id: 3,
+    name: "Tableau 3",
+    sections: [
+      {
+        letter: "k",
+        syllables: [
+          {
+            syllable: "ka / ki / ko / ke / ku",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+        words: [
+          { word: "ka/re/te", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "ki/mo/ne", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "ke/pe", audio: "/audio/syllables/tableau1/domino.mp3" },
+          { word: "ka/ki", audio: "/audio/syllables/tableau1/camera.mp3" },
+          { word: "ka/rim", audio: "/audio/syllables/tableau1/tomate.mp3" },
+          { word: "ki/os/que", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "ko/ra", audio: "/audio/syllables/tableau1/ananas.mp3" },
+        ],
+      },
+
+      {
+        letter: "c",
+        syllables: [
+          {
+            syllable: "ca / co / cu",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+        words: [
+          { word: "ca/na/ri", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "car/na/val", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "cal/cul", audio: "/audio/syllables/tableau1/domino.mp3" },
+          {
+            word: "ci/tron",
+            audio: "/audio/syllables/tableau1/camera.mp3",
+          },
+          { word: "cu/lo/tte", audio: "/audio/syllables/tableau1/tomate.mp3" },
+          { word: "cu/be", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "ca/rro/tte", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "ca/sse/ro/le", audio: "/audio/syllables/tableau1/ali.mp3" },
+        ],
+      },
+
+      {
+        letter: "g",
+        syllables: [
+          {
+            syllable: "ga / gi / go / ge / gu",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+        words: [
+          { word: "ge/nou", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "gi/let", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "ci/ra/ge", audio: "/audio/syllables/tableau1/domino.mp3" },
+          { word: "na/ge", audio: "/audio/syllables/tableau1/camera.mp3" },
+          {
+            word: "ma/ga/zi/ne",
+            audio: "/audio/syllables/tableau1/tomate.mp3",
+          },
+          { word: "lo/go", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "fu/gu/ri/ne", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "nu/a/ge", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "pa/ge", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "gi/ra/fe", audio: "/audio/syllables/tableau1/ali.mp3" },
+        ],
+      },
+
+      {
+        letter: "j",
+        syllables: [
+          {
+            syllable: "ja / ji / jo / je / ju",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+        words: [
+          { word: "py/ja/ma", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "ji/la/li", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "jo/li", audio: "/audio/syllables/tableau1/domino.mp3" },
+          { word: "ja/mi/la", audio: "/audio/syllables/tableau1/camera.mp3" },
+          { word: "ju/do", audio: "/audio/syllables/tableau1/tomate.mp3" },
+          { word: "jus", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "ju/pe", audio: "/audio/syllables/tableau1/ananas.mp3" },
+          { word: "ju/melle", audio: "/audio/syllables/tableau1/ananas.mp3" },
+        ],
+      },
+
+      {
+        letter: "x (ks)",
+        syllables: [
+          {
+            syllable: "x (ks)",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+
+        words: [
+          { word: "ta/xi", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "bo/xe", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "ma/xi/me", audio: "/audio/syllables/tableau1/domino.mp3" },
+          { word: "tex/te", audio: "/audio/syllables/tableau1/camera.mp3" },
+          {
+            word: "sa/xo/pho/ne",
+            audio: "/audio/syllables/tableau1/tomate.mp3",
+          },
+          { word: "ju/melle", audio: "/audio/syllables/tableau1/ali.mp3" },
+        ],
+      },
+
+      {
+        letter: "x (s)",
+        syllables: [
+          {
+            syllable: "x(s)",
+            audio: "/audio/syllables/tableau1/HT2.mp3",
+          },
+        ],
+        words: [
+          { word: "six", audio: "/audio/syllables/tableau1/maman.mp3" },
+          { word: "dix", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "soi/xan/te", audio: "/audio/syllables/tableau1/domino.mp3" },
+        ],
+      },
+
+      // Add more sections for other letters...
+    ],
+  },
 ];
