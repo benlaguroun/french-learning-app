@@ -4,49 +4,64 @@ import "./MindMaps.css";
 const MindMaps = () => {
   const mindMapsData = [
     {
-      title: "Present Tense Conjugations",
+      title: "Les Conjugaisons au Présent / التصريفات في الزمن الحاضر",
       description:
-        "Explore regular and irregular verb conjugations in the present tense.",
+        "Découvrez les verbes réguliers et irréguliers au présent avec des exemples.",
+      arabicDescription:
+        "تعرف على الأفعال المنتظمة وغير المنتظمة في الزمن الحاضر مع أمثلة.",
       image: "/images/present-tense-mindmap.jpg",
     },
     {
-      title: "Gendered Nouns",
+      title: "Les Noms Genrés / الأسماء حسب الجنس",
       description:
-        "Understand the rules for masculine and feminine nouns with examples.",
+        "Comprenez les règles pour les noms masculins et féminins avec des exemples.",
+      arabicDescription: "فهم قواعد الأسماء المذكرة والمؤنثة مع أمثلة توضيحية.",
       image: "/images/gendered-nouns-mindmap.jpg",
     },
     {
-      title: "Sentence Structure",
+      title: "La Structure des Phrases / تركيب الجمل",
       description:
-        "Learn how to structure sentences for questions, negations, and statements.",
+        "Apprenez à structurer des phrases pour les questions, les négations et les affirmations.",
+      arabicDescription: "تعلم كيفية تركيب الجمل للأسئلة والنفي والإيجاب.",
       image: "/images/sentence-structure-mindmap.jpg",
     },
     {
-      title: "Verb Tenses",
+      title: "Les Temps Verbaux / الأزمنة",
       description:
-        "Dive into past, present, and future tenses with key examples.",
+        "Plongez dans les temps passé, présent et futur avec des exemples clés.",
+      arabicDescription:
+        "تعرف على الأزمنة: الماضي، الحاضر، والمستقبل مع أمثلة واضحة.",
       image: "/images/verb-tenses-mindmap.jpg",
     },
   ];
 
   return (
     <div className="mind-maps-page">
-      <h2 className="section-title">Interactive Mind Maps</h2>
+      <h2 className="section-title">
+        Cartes Mentales Interactives / الخرائط الذهنية التفاعلية
+      </h2>
       <p className="section-description">
-        Explore grammar rules and verb conjugations with visual, interactive
-        mind maps.
+        Découvrez les règles de grammaire et les conjugaisons grâce à des cartes
+        mentales interactives et visuelles.
+        <br />
+        استكشف قواعد اللغة والتصريفات من خلال الخرائط الذهنية التفاعلية
+        والمرئية.
       </p>
       <div className="mind-maps-grid">
         {mindMapsData.map((map, index) => (
           <div key={index} className="mind-map-card">
             <img src={map.image} alt={map.title} className="mind-map-image" />
             <h3 className="mind-map-title">{map.title}</h3>
-            <p className="mind-map-description">{map.description}</p>
+            <p className="mind-map-description">
+              {map.description}
+              <br />
+              {map.arabicDescription}
+            </p>
             <button
               className="view-mind-map-button"
-              onClick={() => alert(`Opening ${map.title}...`)}
+              onClick={() => alert(`فتح ${map.title}...`)}
             >
-              View Mind Map
+              View Mind Map / عرض الخريطة
             </button>
           </div>
         ))}
