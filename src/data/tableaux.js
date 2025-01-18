@@ -457,21 +457,27 @@ export const tableaux = [
     name: "Tableau 4",
     sections: [
       {
-        letter: "k",
+        letter: "y",
         syllables: [
           {
-            syllable: "ka / ki / ko / ke / ku",
+            syllable: "by / cy / ly / py / ty",
             audio: "/audio/syllables/tableau1/HT2.mp3",
           },
         ],
         words: [
-          { word: "ka/re/te", audio: "/audio/syllables/tableau1/maman.mp3" },
-          { word: "ki/mo/ne", audio: "/audio/syllables/tableau1/ami.mp3" },
-          { word: "ke/pe", audio: "/audio/syllables/tableau1/domino.mp3" },
-          { word: "ka/ki", audio: "/audio/syllables/tableau1/camera.mp3" },
-          { word: "ka/rim", audio: "/audio/syllables/tableau1/tomate.mp3" },
-          { word: "ki/os/que", audio: "/audio/syllables/tableau1/ali.mp3" },
-          { word: "ko/ra", audio: "/audio/syllables/tableau1/ananas.mp3" },
+          {
+            word: "bi/cy/clet/te",
+            audio: "/audio/syllables/tableau1/maman.mp3",
+          },
+          { word: "cu/rry", audio: "/audio/syllables/tableau1/ami.mp3" },
+          { word: "ly/re", audio: "/audio/syllables/tableau1/domino.mp3" },
+          { word: "py/ja/ma", audio: "/audio/syllables/tableau1/camera.mp3" },
+          {
+            word: "py/ra/mi/de",
+            audio: "/audio/syllables/tableau1/tomate.mp3",
+          },
+          { word: "sy/lla/be", audio: "/audio/syllables/tableau1/ali.mp3" },
+          { word: "e/gy/pte", audio: "/audio/syllables/tableau1/ananas.mp3" },
         ],
       },
 
