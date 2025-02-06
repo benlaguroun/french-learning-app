@@ -6,31 +6,25 @@ const AppShowcaseSection = () => {
   return (
     <section className="app-showcase-section">
       <div className="overlay">
-        <h2 className="section-title">Discover Our App</h2>
+        <h2 className="section-title">اكتشف تطبيقنا</h2>
         <div className="showcase-grid">
           <div className="showcase-item">
             <FaBookOpen className="icon" />
-            <h3>Learn Through Syllables</h3>
+            <h3>تعلم من خلال المقاطع الصوتية</h3>
             <p>
-              Unlock the power of syllable-based learning for mastering French
-              vocabulary and pronunciation.
+              افتح قوة التعلم عبر المقاطع الصوتية لإتقان مفردات اللغة الفرنسية
+              والنطق الصحيح.
             </p>
           </div>
           <div className="showcase-item">
             <FaTasks className="icon" />
-            <h3>Interactive Level Tests</h3>
-            <p>
-              Challenge yourself with engaging tests tailored for each learning
-              level.
-            </p>
+            <h3>اختبارات تفاعلية للمستويات</h3>
+            <p>تحدى نفسك مع اختبارات مشوقة مخصصة لكل مستوى تعلم.</p>
           </div>
           <div className="showcase-item">
             <FaChartLine className="icon" />
-            <h3>Track Your Progress</h3>
-            <p>
-              Stay motivated with real-time progress tracking and goal
-              milestones.
-            </p>
+            <h3>تتبع تقدمك</h3>
+            <p>حافظ على تحفيزك مع تتبع التقدم الفعلي وتحقيق الأهداف.</p>
           </div>
         </div>
       </div>

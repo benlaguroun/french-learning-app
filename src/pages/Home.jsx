@@ -10,12 +10,12 @@ const Home = () => {
     <div className="home-page">
       <header className="hero-section">
         <div className="hero-content">
-          <h1>Welcome to French Learning App</h1>
+          <h1>مرحبًا بك في تطبيق تعلم اللغة الفرنسية</h1>
           <p>
-            Master French through syllable-based learning, interactive tests,
-            and progress tracking!
+            اتقن اللغة الفرنسية من خلال التعلم عبر المقاطع الصوتية، والاختبارات
+            وتتبع التقدم
           </p>
-          <button className="cta-button">Get Started Now</button>
+          <button className="cta-button">ابدأ الآن</button>
         </div>
       </header>
       <FeatureSection />
