@@ -14,6 +14,8 @@ import SyllabicTableau from "./components/SyllabicTableau";
 import VocabularyPage from "./components/VocabularyPage";
 import MindMaps from "./components/MindMaps";
 import ColorCodedCharts from "./components/ColorCodedCharts";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
       <div>
         <Header />
         <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/learning-path" element={<LearningPath />} />
           <Route path="/level/:levelId" element={<LevelPage />} />
