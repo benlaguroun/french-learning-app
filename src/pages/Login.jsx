@@ -13,14 +13,14 @@ const Login = () => {
     e.preventDefault();
     setError(null);
 
-    const { user, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
       setError(error.message);
-    } else {
+    } else if (data.user) {
       alert("Login successful!");
       navigate("/"); // Redirect to home page after login
     }

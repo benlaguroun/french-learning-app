@@ -1,10 +1,11 @@
 /* Hero Section Styles */
 .hero-section {
   height: 100vh;
-  background-image: url("../images/hero-bg.jpg"); /* Replace with your image path */
+  background-image: url("/public/images/hero-bg.jpg"); /* Use absolute path */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Fix for mobile */
   display: flex;
   justify-content: center;
   align-items: center;

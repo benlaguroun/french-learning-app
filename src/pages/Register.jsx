@@ -13,14 +13,14 @@ const Register = () => {
     e.preventDefault();
     setError(null);
 
-    const { user, error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
 
     if (error) {
       setError(error.message);
-    } else {
+    } else if (data.user) {
       alert(
         "Registration successful! Check your email to verify your account."
       );
