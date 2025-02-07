@@ -80,6 +80,18 @@ const TestNiveau = () => {
     setShowResult(false);
   };
 
+  /** ✅ FIXED: Allow repeating tests */
+  const handleRetryWord = (word) => {
+    setResults((prevResults) => {
+      const updatedResults = { ...prevResults };
+      delete updatedResults[word]; // Remove previous result
+      return updatedResults;
+    });
+
+    setTestState({ recognizedWord: "", feedback: "" });
+    startSpeechRecognition(word);
+  };
+
   return (
     <div className="test-niveau">
       <h2>اختبر مفرداتك - {currentNiveau.toUpperCase()}</h2>
@@ -141,11 +153,11 @@ const TestNiveau = () => {
               </p>
             )}
 
-            {/* زر إعادة المحاولة للكلمات غير الصحيحة */}
+            {/* ✅ زر إعادة المحاولة يعمل الآن */}
             {results[word] === false && (
               <button
                 className="repeat-button"
-                onClick={() => startSpeechRecognition(word)}
+                onClick={() => handleRetryWord(word)}
               >
                 🔄 حاول مرة أخرى
               </button>
