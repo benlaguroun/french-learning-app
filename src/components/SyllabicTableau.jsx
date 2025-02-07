@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { tableaux } from "../data/tableaux";
 import "./SyllabicTableau.css";
@@ -6,8 +6,15 @@ import "./SyllabicTableau.css";
 const SyllabicTableau = () => {
   const { id } = useParams();
   const tableau = tableaux.find((t) => t.id === parseInt(id));
-  const [activeLetter, setActiveLetter] = useState(tableau.sections[0].letter); // Default to the first letter
-  const [feedbacks, setFeedbacks] = useState({}); // State to track feedback for each card
+  const [activeLetter, setActiveLetter] = useState(tableau.sections[0].letter);
+  const [feedbacks, setFeedbacks] = useState({});
+  const [finalResult, setFinalResult] = useState(null); // Store the final pass/fail result
+
+  // Clear feedback when the user navigates to a new letter or page
+  useEffect(() => {
+    setFeedbacks({});
+    setFinalResult(null);
+  }, [id, activeLetter]);
 
   if (!tableau) {
     return (
@@ -27,7 +34,7 @@ const SyllabicTableau = () => {
     try {
       const recognition = new (window.SpeechRecognition ||
         window.webkitSpeechRecognition)();
-      recognition.lang = "fr-FR"; // Set language to French
+      recognition.lang = "fr-FR";
       recognition.start();
 
       recognition.onresult = (event) => {
@@ -39,6 +46,8 @@ const SyllabicTableau = () => {
           ...prevFeedbacks,
           [`${type}-${index}`]: { text: transcript, color, accuracy },
         }));
+
+        checkFinalResult();
       };
 
       recognition.onerror = () => {
@@ -46,7 +55,7 @@ const SyllabicTableau = () => {
           ...prevFeedbacks,
           [`${type}-${index}`]: {
             text: "Voice recognition failed.",
-            color: "#e74c3c", // Red
+            color: "#e74c3c",
             accuracy: 0,
           },
         }));
@@ -56,25 +65,34 @@ const SyllabicTableau = () => {
         ...prevFeedbacks,
         [`${type}-${index}`]: {
           text: "Speech recognition is not supported in your browser.",
-          color: "#e74c3c", // Red
+          color: "#e74c3c",
           accuracy: 0,
         },
       }));
     }
   };
 
-  // Calculate accuracy (simple comparison for now)
+  // Calculate accuracy (simple letter match)
   const calculateAccuracy = (transcript, target) => {
-    if (transcript === target) return 100; // Perfect match
+    if (transcript === target) return 100;
     const common = transcript.split("").filter((char) => target.includes(char));
-    return Math.floor((common.length / target.length) * 100); // Percentage match
+    return Math.floor((common.length / target.length) * 100);
   };
 
   // Get color based on accuracy
   const getAccuracyColor = (accuracy) => {
-    const red = 255 - Math.floor((accuracy / 100) * 255);
-    const green = Math.floor((accuracy / 100) * 255);
-    return `rgb(${red}, ${green}, 0)`;
+    return accuracy >= 80 ? "green" : accuracy >= 50 ? "orange" : "red";
+  };
+
+  // Check if the user passed or failed
+  const checkFinalResult = () => {
+    const accuracyValues = Object.values(feedbacks).map((f) => f.accuracy || 0);
+    if (accuracyValues.length > 0) {
+      const averageAccuracy =
+        accuracyValues.reduce((sum, acc) => sum + acc, 0) /
+        accuracyValues.length;
+      setFinalResult(averageAccuracy >= 80 ? "✅ Passed" : "❌ Try Again");
+    }
   };
 
   return (
@@ -172,6 +190,13 @@ const SyllabicTableau = () => {
           ))}
         </div>
       </div>
+
+      {/* Final Result Display */}
+      {finalResult && (
+        <div className="final-result">
+          <h2>Test Result: {finalResult}</h2>
+        </div>
+      )}
     </div>
   );
 };
