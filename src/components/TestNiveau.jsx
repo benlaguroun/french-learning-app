@@ -26,7 +26,7 @@ const TestNiveau = () => {
     ) {
       setTestState({
         recognizedWord: "",
-        feedback: "Speech recognition not supported in your browser.",
+        feedback: "التعرف على الصوت غير مدعوم في متصفحك.",
       });
       return;
     }
@@ -38,7 +38,7 @@ const TestNiveau = () => {
     recognition.interimResults = false;
 
     recognition.onstart = () =>
-      setTestState({ recognizedWord: "", feedback: "🎤 Listening..." });
+      setTestState({ recognizedWord: "", feedback: "🎤 استمع..." });
 
     recognition.onresult = (event) => {
       const spokenWord = event.results[0][0].transcript.toLowerCase();
@@ -52,15 +52,15 @@ const TestNiveau = () => {
       setTestState({
         recognizedWord: spokenWord,
         feedback: isCorrect
-          ? `✅ Correct! "${spokenWord}" matches "${expectedWord}"`
-          : `❌ Incorrect. You said: "${spokenWord}", expected: "${expectedWord}". Try again!`,
+          ? `✅ صحيح! "${spokenWord}" يطابق "${expectedWord}"`
+          : `❌ خطأ. لقد قلت: "${spokenWord}"، الكلمة المطلوبة: "${expectedWord}". حاول مرة أخرى!`,
       });
     };
 
     recognition.onerror = () =>
       setTestState({
         recognizedWord: "",
-        feedback: "❌ Error occurred. Try again!",
+        feedback: "❌ حدث خطأ. حاول مرة أخرى!",
       });
 
     recognition.start();
@@ -82,9 +82,9 @@ const TestNiveau = () => {
 
   return (
     <div className="test-niveau">
-      <h2>Test Your Vocabulary - {currentNiveau.toUpperCase()}</h2>
+      <h2>اختبر مفرداتك - {currentNiveau.toUpperCase()}</h2>
 
-      {/* Niveau Selector */}
+      {/* اختيار المستوى */}
       <div className="niveau-selector">
         {Object.keys(niveaux).map((niveau) => (
           <button
@@ -99,17 +99,17 @@ const TestNiveau = () => {
         ))}
       </div>
 
-      {/* Feedback Section */}
+      {/* قسم الملاحظات */}
       <div className="feedback">
         {testState.recognizedWord && (
           <p>
-            <strong>You said:</strong> "{testState.recognizedWord}"
+            <strong>لقد قلت:</strong> "{testState.recognizedWord}"
           </p>
         )}
         <p>{testState.feedback}</p>
       </div>
 
-      {/* Progress Bar */}
+      {/* شريط التقدم */}
       <div className="progress-bar">
         <div
           className="progress"
@@ -121,7 +121,7 @@ const TestNiveau = () => {
         />
       </div>
 
-      {/* Vocabulary Cards */}
+      {/* بطاقات الكلمات */}
       <div className="cards">
         {vocabulary.map((word, index) => (
           <div key={index} className="card">
@@ -131,61 +131,57 @@ const TestNiveau = () => {
               onClick={() => startSpeechRecognition(word)}
               disabled={results[word] !== undefined}
             >
-              🎤 Test Voice
+              🎤 اختبار النطق
             </button>
 
-            {/* Results for each word */}
+            {/* نتيجة الاختبار لكل كلمة */}
             {results[word] !== undefined && (
               <p className={`test-result ${results[word] ? "pass" : "fail"}`}>
-                {results[word] ? "✅ Passed" : "❌ Failed"}
+                {results[word] ? "✅ ناجح" : "❌ فشل"}
               </p>
             )}
 
-            {/* Repeat Button for Incorrect Answers */}
+            {/* زر إعادة المحاولة للكلمات غير الصحيحة */}
             {results[word] === false && (
               <button
                 className="repeat-button"
                 onClick={() => startSpeechRecognition(word)}
               >
-                🔄 Try Again
+                🔄 حاول مرة أخرى
               </button>
             )}
           </div>
         ))}
       </div>
 
-      {/* Niveau Completion Button */}
+      {/* زر إكمال المستوى */}
       {Object.keys(results).length === vocabulary.length && (
         <div className="niveau-summary">
           <button className="complete-button" onClick={handleNiveauComplete}>
-            🎯 Complete Niveau
+            🎯 إنهاء المستوى
           </button>
         </div>
       )}
 
-      {/* Results Modal */}
+      {/* نافذة النتيجة */}
       {showResult && (
         <div className="result-modal">
           <div className="result-content">
-            <h3>
-              {score >= 80
-                ? "🎉 Congratulations! You Passed!"
-                : "❌ Try Again!"}
-            </h3>
+            <h3>{score >= 80 ? "🎉 مبروك! لقد نجحت!" : "❌ حاول مرة أخرى!"}</h3>
             <p>
-              Your Score: <strong>{score}%</strong>
+              درجتك: <strong>{score}%</strong>
             </p>
             <div className="result-buttons">
               {score >= 80 ? (
                 <button className="next-button" onClick={handleNextLevel}>
-                  ➡️ Next Level
+                  ➡️ المستوى التالي
                 </button>
               ) : (
                 <button
                   className="retry-button"
                   onClick={() => setShowResult(false)}
                 >
-                  🔄 Retry Level
+                  🔄 إعادة المحاولة
                 </button>
               )}
             </div>
