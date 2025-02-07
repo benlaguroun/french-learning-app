@@ -40,26 +40,34 @@ const Header = () => {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
-              Home
+              🏠 الرئيسية
             </Nav.Link>
             <Nav.Link as={Link} to="/tests">
-              Tests
+              📝 الاختبارات
             </Nav.Link>
             <Nav.Link as={Link} to="/progress">
-              Progress
+              📊 تقدمك
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
-              About
-            </Nav.Link>
+            <Nav.Link as={Link} to="/about-us">
+              ℹ️ من نحن؟
+            </Nav.Link>{" "}
+            {/* Updated Link */}
             <Nav.Link as={Link} to="/learning-path">
-              Learning Path
+              📚 مسار التعلم
             </Nav.Link>
           </Nav>
           <div className="navbar-buttons">
-            <Button variant="outline-primary" className="me-2">
-              Register
+            <Button
+              as={Link}
+              to="/register"
+              variant="outline-primary"
+              className="me-2"
+            >
+              تسجيل
             </Button>
-            <Button variant="primary">Sign In</Button>
+            <Button as={Link} to="/login" variant="primary">
+              تسجيل الدخول
+            </Button>
           </div>
         </Navbar.Collapse>
       </Container>

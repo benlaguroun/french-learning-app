@@ -22,6 +22,7 @@ import MindMaps from "./components/MindMaps";
 import ColorCodedCharts from "./components/ColorCodedCharts";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -57,7 +58,6 @@ const App = () => {
           {/* Public Routes */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
           {/* Protected Routes */}
           {user ? (
             <>
@@ -83,6 +83,7 @@ const App = () => {
             // Redirect to login if user is not authenticated
             <Route path="*" element={<Navigate to="/login" />} />
           )}
+          <Route path="/about-us" element={<AboutUs />} /> {/* Add Route */}
         </Routes>
         <Footer />
       </div>
