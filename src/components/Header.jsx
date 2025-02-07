@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -56,7 +56,7 @@ const Header = () => {
               📚 مسار التعلم
             </Nav.Link>
           </Nav>
-          <div className="navbar-buttons">
+          {/* <div className="navbar-buttons">
             <Button
               as={Link}
               to="/register"
@@ -68,7 +68,7 @@ const Header = () => {
             <Button as={Link} to="/login" variant="primary">
               تسجيل الدخول
             </Button>
-          </div>
+          </div> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
