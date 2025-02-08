@@ -8,9 +8,8 @@ const SyllabicTableau = () => {
   const tableau = tableaux.find((t) => t.id === parseInt(id));
   const [activeLetter, setActiveLetter] = useState(tableau.sections[0].letter);
   const [feedbacks, setFeedbacks] = useState({});
-  const [finalResult, setFinalResult] = useState(null); // Store the final pass/fail result
+  const [finalResult, setFinalResult] = useState(null);
 
-  // Clear feedback when the user navigates to a new letter or page
   useEffect(() => {
     setFeedbacks({});
     setFinalResult(null);
@@ -19,8 +18,8 @@ const SyllabicTableau = () => {
   if (!tableau) {
     return (
       <div className="syllabic-tableau">
-        <h2>Tableau not found</h2>
-        <p>The requested tableau does not exist. Please check the URL.</p>
+        <h2>❌ الجدول غير موجود</h2>
+        <p>⚠️ الجدول المطلوب غير متاح، يرجى التحقق من الرابط.</p>
       </div>
     );
   }
@@ -29,7 +28,7 @@ const SyllabicTableau = () => {
     (section) => section.letter === activeLetter
   );
 
-  // Handle voice test
+  // اختبار النطق الصوتي
   const handleVoiceTest = async (target, index, type) => {
     try {
       const recognition = new (window.SpeechRecognition ||
@@ -54,7 +53,7 @@ const SyllabicTableau = () => {
         setFeedbacks((prevFeedbacks) => ({
           ...prevFeedbacks,
           [`${type}-${index}`]: {
-            text: "Voice recognition failed.",
+            text: "❌ فشل التعرف على الصوت",
             color: "#e74c3c",
             accuracy: 0,
           },
@@ -64,7 +63,7 @@ const SyllabicTableau = () => {
       setFeedbacks((prevFeedbacks) => ({
         ...prevFeedbacks,
         [`${type}-${index}`]: {
-          text: "Speech recognition is not supported in your browser.",
+          text: "❌ المتصفح لا يدعم التعرف على الصوت",
           color: "#e74c3c",
           accuracy: 0,
         },
@@ -72,34 +71,34 @@ const SyllabicTableau = () => {
     }
   };
 
-  // Calculate accuracy (simple letter match)
+  // حساب نسبة الدقة
   const calculateAccuracy = (transcript, target) => {
     if (transcript === target) return 100;
     const common = transcript.split("").filter((char) => target.includes(char));
     return Math.floor((common.length / target.length) * 100);
   };
 
-  // Get color based on accuracy
+  // تحديد لون التقييم بناءً على الدقة
   const getAccuracyColor = (accuracy) => {
     return accuracy >= 80 ? "green" : accuracy >= 50 ? "orange" : "red";
   };
 
-  // Check if the user passed or failed
+  // التحقق مما إذا كان المستخدم نجح أو فشل
   const checkFinalResult = () => {
     const accuracyValues = Object.values(feedbacks).map((f) => f.accuracy || 0);
     if (accuracyValues.length > 0) {
       const averageAccuracy =
         accuracyValues.reduce((sum, acc) => sum + acc, 0) /
         accuracyValues.length;
-      setFinalResult(averageAccuracy >= 80 ? "✅ Passed" : "❌ Try Again");
+      setFinalResult(averageAccuracy >= 80 ? "✅ ناجح" : "❌ حاول مرة أخرى");
     }
   };
 
   return (
-    <div className="syllabic-tableau">
+    <div className="syllabic-tableau" dir="rtl">
       <h2>{tableau.name}</h2>
 
-      {/* Navigation Buttons */}
+      {/* أزرار التنقل بين الحروف */}
       <div className="letter-navigation">
         {tableau.sections.map((section) => (
           <button
@@ -114,10 +113,10 @@ const SyllabicTableau = () => {
         ))}
       </div>
 
-      {/* Syllables Section */}
+      {/* قسم المقاطع الصوتية */}
       <div className="syllable-section">
         <h3 className="section-title">
-          Syllables for "{activeLetter.toUpperCase()}"
+          المقاطع الصوتية للحرف "{activeLetter.toUpperCase()}"
         </h3>
         <div className="syllable-grid">
           {activeSection.syllables.map((item, index) => (
@@ -127,7 +126,7 @@ const SyllabicTableau = () => {
                 className="audio-button"
                 onClick={() => new Audio(item.audio).play()}
               >
-                Play
+                🔊 استمع
               </button>
               <button
                 className="voice-test-button"
@@ -135,7 +134,7 @@ const SyllabicTableau = () => {
                   handleVoiceTest(item.syllable, index, "syllable")
                 }
               >
-                Test Voice
+                🎤 اختبار النطق
               </button>
               <div
                 className="feedback-rectangle"
@@ -146,7 +145,7 @@ const SyllabicTableau = () => {
               >
                 {feedbacks[`syllable-${index}`]?.accuracy
                   ? `${feedbacks[`syllable-${index}`]?.accuracy}%`
-                  : "Pending"}
+                  : "🕓 بانتظار النتيجة"}
               </div>
               <p>{feedbacks[`syllable-${index}`]?.text || ""}</p>
             </div>
@@ -154,10 +153,10 @@ const SyllabicTableau = () => {
         </div>
       </div>
 
-      {/* Words Section */}
+      {/* قسم الكلمات */}
       <div className="word-section">
         <h3 className="section-title">
-          Words for "{activeLetter.toUpperCase()}"
+          الكلمات المرتبطة بالحرف "{activeLetter.toUpperCase()}"
         </h3>
         <div className="word-grid">
           {activeSection.words.map((item, index) => (
@@ -167,13 +166,13 @@ const SyllabicTableau = () => {
                 className="audio-button"
                 onClick={() => new Audio(item.audio).play()}
               >
-                Play
+                🔊 استمع
               </button>
               <button
                 className="voice-test-button"
                 onClick={() => handleVoiceTest(item.word, index, "word")}
               >
-                Test Voice
+                🎤 اختبار النطق
               </button>
               <div
                 className="feedback-rectangle"
@@ -183,7 +182,7 @@ const SyllabicTableau = () => {
               >
                 {feedbacks[`word-${index}`]?.accuracy
                   ? `${feedbacks[`word-${index}`]?.accuracy}%`
-                  : "Pending"}
+                  : "🕓 بانتظار النتيجة"}
               </div>
               <p>{feedbacks[`word-${index}`]?.text || ""}</p>
             </div>
@@ -191,10 +190,10 @@ const SyllabicTableau = () => {
         </div>
       </div>
 
-      {/* Final Result Display */}
+      {/* عرض النتيجة النهائية */}
       {finalResult && (
         <div className="final-result">
-          <h2>Test Result: {finalResult}</h2>
+          <h2>نتيجة الاختبار: {finalResult}</h2>
         </div>
       )}
     </div>
