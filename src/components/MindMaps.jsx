@@ -4,95 +4,70 @@ import "./MindMaps.css";
 const MindMaps = () => {
   const mindMapsData = [
     {
-      title: "Les Conjugaisons au Présent / التصريفات في الزمن الحاضر",
-      description:
-        "Découvrez les verbes réguliers et irréguliers au présent avec des exemples.",
+      title: "Les Conjugaisons au Présent",
+      arabicTitle: "التصريفات في الزمن الحاضر",
+      description: "Découvrez les verbes réguliers et irréguliers au présent.",
       arabicDescription:
-        "تعرف على الأفعال المنتظمة وغير المنتظمة في الزمن الحاضر مع أمثلة.",
+        "تعرف على الأفعال المنتظمة وغير المنتظمة في الزمن الحاضر.",
       image: "/images/present-tense-mindmap.jpg",
     },
     {
-      title: "Les Noms Genrés / الأسماء حسب الجنس",
-      description:
-        "Comprenez les règles pour les noms masculins et féminins avec des exemples.",
-      arabicDescription: "فهم قواعد الأسماء المذكرة والمؤنثة مع أمثلة توضيحية.",
+      title: "Les Noms Genrés",
+      arabicTitle: "الأسماء حسب الجنس",
+      description: "Comprenez les règles pour les noms masculins et féminins.",
+      arabicDescription: "فهم قواعد الأسماء المذكرة والمؤنثة.",
       image: "/images/gendered-nouns-mindmap.jpg",
     },
     {
-      title: "La Structure des Phrases / تركيب الجمل",
-      description:
-        "Apprenez à structurer des phrases pour les questions, les négations et les affirmations.",
-      arabicDescription: "تعلم كيفية تركيب الجمل للأسئلة والنفي والإيجاب.",
+      title: "La Structure des Phrases",
+      arabicTitle: "تركيب الجمل",
+      description: "Apprenez à structurer des phrases correctement.",
+      arabicDescription: "تعلم كيفية تركيب الجمل بشكل صحيح.",
       image: "/images/sentence-structure-mindmap.jpg",
     },
     {
-      title: "Les Temps Verbaux / الأزمنة",
-      description:
-        "Plongez dans les temps passé, présent et futur avec des exemples clés.",
-      arabicDescription:
-        "تعرف على الأزمنة: الماضي، الحاضر، والمستقبل مع أمثلة واضحة.",
+      title: "Les Temps Verbaux",
+      arabicTitle: "الأزمنة",
+      description: "Explorez les temps passé, présent et futur.",
+      arabicDescription: "استكشف الأزمنة: الماضي، الحاضر، والمستقبل.",
       image: "/images/verb-tenses-mindmap.jpg",
     },
   ];
 
-  // State to track selected mind map
-  const [selectedMindMap, setSelectedMindMap] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
     <div className="mind-maps-page">
-      <h2 className="section-title">
-        Cartes Mentales Interactives / الخرائط الذهنية التفاعلية
-      </h2>
+      <h2 className="section-title">🌟 الخرائط الذهنية التفاعلية</h2>
       <p className="section-description">
-        Découvrez les règles de grammaire et les conjugaisons grâce à des cartes
-        mentales interactives et visuelles.
-        <br />
-        استكشف قواعد اللغة والتصريفات من خلال الخرائط الذهنية التفاعلية
-        والمرئية.
+        📌 استخدم الخرائط الذهنية لفهم القواعد بشكل ممتع وبسيط!
       </p>
 
-      {/* Mind Maps Grid */}
-      <div className="mind-maps-grid">
+      <div className="mind-maps-container">
         {mindMapsData.map((map, index) => (
-          <div key={index} className="mind-map-card">
+          <div
+            key={index}
+            className={`mind-map-card ${
+              expandedIndex === index ? "expanded" : ""
+            }`}
+            onClick={() =>
+              setExpandedIndex(expandedIndex === index ? null : index)
+            }
+          >
             <img src={map.image} alt={map.title} className="mind-map-image" />
-            <h3 className="mind-map-title">{map.title}</h3>
-            <p className="mind-map-description">
-              {map.description}
-              <br />
-              {map.arabicDescription}
-            </p>
-            <button
-              className="view-mind-map-button"
-              onClick={() => setSelectedMindMap(map)}
-            >
-              View Mind Map / عرض الخريطة
-            </button>
+            <div className="mind-map-text">
+              <h3>{map.arabicTitle}</h3>
+              <p>{map.arabicDescription}</p>
+              {expandedIndex === index && (
+                <div className="expanded-content">
+                  <h3>{map.title}</h3>
+                  <p>{map.description}</p>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
-
-      {/* Modal Popup for Viewing Mind Map */}
-      {selectedMindMap && (
-        <div className="mind-map-modal">
-          <div className="modal-content">
-            <span
-              className="close-button"
-              onClick={() => setSelectedMindMap(null)}
-            >
-              &times;
-            </span>
-            <h2>{selectedMindMap.title}</h2>
-            <img
-              src={selectedMindMap.image}
-              alt={selectedMindMap.title}
-              className="modal-image"
-            />
-            <p>{selectedMindMap.description}</p>
-            <p>{selectedMindMap.arabicDescription}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
