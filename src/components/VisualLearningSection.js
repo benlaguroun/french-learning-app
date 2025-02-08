@@ -5,40 +5,41 @@ import { FaProjectDiagram, FaPalette, FaPlayCircle } from "react-icons/fa";
 
 const VisualLearningSection = () => {
   return (
-    <section className="visual-learning-section">
-      <h2 className="section-title">Visual Learning Tools</h2>
+    <section className="visual-learning-section" dir="rtl">
+      <h2 className="section-title">أدوات التعلم البصري</h2>
       <p className="section-description">
-        Enhance your learning experience with our interactive tools for
-        mastering French grammar and vocabulary.
+        عزز تجربتك التعليمية باستخدام أدواتنا التفاعلية لإتقان قواعد ومفردات
+        اللغة الفرنسية.
       </p>
       <div className="learning-grid">
         <div className="learning-card">
           <FaProjectDiagram className="learning-icon" />
-          <h3>Mind Maps</h3>
+          <h3>الخرائط الذهنية</h3>
           <p>
-            Explore grammar rules and verb conjugations with interactive mind
-            maps.
+            اكتشف قواعد النحو وتصريف الأفعال من خلال الخرائط الذهنية التفاعلية.
           </p>
           <Link to="/mind-maps">
-            <button className="learn-more-button">Learn More</button>
+            <button className="learn-more-button">المزيد من التفاصيل</button>
           </Link>
         </div>
         <div className="learning-card">
           <FaPalette className="learning-icon" />
-          <h3>Color-Coded Charts</h3>
+          <h3>المخططات الملونة</h3>
           <p>
-            Understand gendered nouns and verb tenses with visually appealing
-            charts.
+            فهم الأسماء المذكرة والمؤنثة وأزمنة الأفعال من خلال المخططات المرئية
+            الجذابة.
           </p>
           <Link to="/color-coded-charts">
-            <button className="learn-more-button">Learn More</button>
+            <button className="learn-more-button">المزيد من التفاصيل</button>
           </Link>
         </div>
         <div className="learning-card">
           <FaPlayCircle className="learning-icon" />
-          <h3>Animated Explanations</h3>
-          <p>Grasp tricky grammar concepts with step-by-step animations.</p>
-          <button className="learn-more-button">Learn More</button>
+          <h3>شروحات متحركة</h3>
+          <p>
+            استوعب المفاهيم النحوية الصعبة من خلال الرسوم المتحركة التوضيحية.
+          </p>
+          <button className="learn-more-button">المزيد من التفاصيل</button>
         </div>
       </div>
     </section>

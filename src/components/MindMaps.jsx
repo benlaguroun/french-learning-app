@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MindMaps.css";
 
 const MindMaps = () => {
@@ -35,6 +35,9 @@ const MindMaps = () => {
     },
   ];
 
+  // State to track selected mind map
+  const [selectedMindMap, setSelectedMindMap] = useState(null);
+
   return (
     <div className="mind-maps-page">
       <h2 className="section-title">
@@ -47,6 +50,8 @@ const MindMaps = () => {
         استكشف قواعد اللغة والتصريفات من خلال الخرائط الذهنية التفاعلية
         والمرئية.
       </p>
+
+      {/* Mind Maps Grid */}
       <div className="mind-maps-grid">
         {mindMapsData.map((map, index) => (
           <div key={index} className="mind-map-card">
@@ -59,13 +64,35 @@ const MindMaps = () => {
             </p>
             <button
               className="view-mind-map-button"
-              onClick={() => alert(`فتح ${map.title}...`)}
+              onClick={() => setSelectedMindMap(map)}
             >
               View Mind Map / عرض الخريطة
             </button>
           </div>
         ))}
       </div>
+
+      {/* Modal Popup for Viewing Mind Map */}
+      {selectedMindMap && (
+        <div className="mind-map-modal">
+          <div className="modal-content">
+            <span
+              className="close-button"
+              onClick={() => setSelectedMindMap(null)}
+            >
+              &times;
+            </span>
+            <h2>{selectedMindMap.title}</h2>
+            <img
+              src={selectedMindMap.image}
+              alt={selectedMindMap.title}
+              className="modal-image"
+            />
+            <p>{selectedMindMap.description}</p>
+            <p>{selectedMindMap.arabicDescription}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
