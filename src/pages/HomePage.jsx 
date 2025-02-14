@@ -1,0 +1,24 @@
+import { Link } from "react-router-dom";
+import "./HomePage.css"; // Separate CSS file for styling
+
+const HomePage = () => {
+  return (
+    <div className="home">
+      <h1>Welcome to Our E-commerce Store</h1>
+      <div className="categories">
+        <CategoryCard title="Cameras" link="/category/cameras" />
+        <CategoryCard title="Laptops" link="/category/laptops" />
+        <CategoryCard title="Accessories" link="/category/accessories" />
+      </div>
+    </div>
+  );
+};
+
+const CategoryCard = ({ title, link }) => (
+  <div className="category-card">
+    <h2>{title}</h2>
+    <Link to={link}>View Products</Link>
+  </div>
+);
+
+export default HomePage;
